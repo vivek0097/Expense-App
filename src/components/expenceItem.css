@@ -1,0 +1,48 @@
+.sec-one {
+    background-color: #272727;
+    position: relative;
+  }
+  
+  .expence {
+    border-radius: 12px;
+    background-color: #4b4b4b;
+  }
+  .expence-date {
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+  }
+  .expence-title {
+    font-size: 25px;
+    font-family: Roboto;
+    font-weight: 600;
+    color: #fff;
+  }
+  .expence-price {
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    background-color: #753191;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    position: relative;
+  }
+  .date-box {
+    color: white;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .expence-date {
+      font-size: 15px;
+    }
+    .expence-title {
+      font-size: 15px;
+    }
+    .expence-price {
+      font-size: 15px;
+    }
+  }
+  
