@@ -1,42 +1,70 @@
-import React from 'react'
-import ExpenseItem from "./components/ExpenseItem";
-// import './App.css'
+import React,{useState} from 'react'
+import Expense from './components/Expense';
+import NewExpense from './components/NewExpense/NewExpense';
 
+// import './App.css'
+const DUMY_EXPENSES = [
+  {
+    id:'e1',
+    title: 'Car Insurance',
+    amount: '1000/-',
+    date: new Date(2020, 5, 25),
+  },
+  {
+    id:'e2',
+    title: 'new Phone',
+    amount: '4521/-',
+    date: new Date(2022, 4, 22),
+  },
+  {
+    id:'e3',
+    title: 'Watch',
+    amount: '1000/-',
+    date: new Date(2020, 5, 10),
+  },
+  {
+    id:'e4',
+    title: 'Bike',
+    amount: '2536/-',
+    date: new Date(2021, 5, 5),
+  },
+  {
+    id:'e5',
+    title: 'Book',
+    amount: '2536/-',
+    date: new Date(2021, 5, 10),
+  },
+  {
+    id:'e6',
+    title: 'watch',
+    amount: '5006/-',
+    date: new Date(2022, 4, 5),
+  },
+  {
+    id:'e7',
+    title: 'Bike',
+    amount: '253226/-',
+    date: new Date(2022, 5, 5),
+  },
+];
 
 function App() {
-  const expenses = [
-    {
-      id:'e1',
-      title: 'Car Insurance',
-      amount: '1000/-',
-      date: new Date(2022, 5, 25),
-    },
-    {
-      id:'e2',
-      title: 'new Phone',
-      amount: '4521/-',
-      date: new Date(2022, 4, 22),
-    },
-    {
-      id:'e3',
-      title: 'Watch',
-      amount: '1000/-',
-      date: new Date(2022, 5, 10),
-    },
-    {
-      id:'e4',
-      title: 'Bike',
-      amount: '2536/-',
-      date: new Date(2022, 5, 5),
-    },
-  ];
+ 
+  const [expenses, setExpenses] = useState(DUMY_EXPENSES);
+
+const addExpenseHandler = (expense) => {
+
+// console.log(expense)
+setExpenses(prevExpenses => {
+  return [expense, ...prevExpenses]
+});
+}
+
+
   return (
     <div className='App '>
-   <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} />
-   <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date} />
-   <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} />
-   <ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date} />
-  
+      <NewExpense  onAddExpense={addExpenseHandler}/>
+     <Expense  items={expenses}/>
     </div>
   );
 }
